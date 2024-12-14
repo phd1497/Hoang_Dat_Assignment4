@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Platform, StatusBar } from 'react-native';
+
 
 const App = () => {
   return (
+    <SafeAreaView style={styles.safeArea}>
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.heading}>My Bio</Text>
       
@@ -39,10 +42,16 @@ const App = () => {
         <Text style={styles.value}>- Javascript</Text>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    backgroundColor: '#f5f5f5',
+  },
   container: {
     flexGrow: 1,
     padding: 20,
@@ -54,13 +63,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
     color: '#1e88e5',
+    fontSize: 26,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+    color: '#00796b',
+    textShadowColor: '#004d40',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
   },
   section: {
     marginBottom: 15,
     padding: 15,
+    backgroundColor: '#ffccbc',
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#d84315',
     shadowColor: '#000',
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 3,
   },
