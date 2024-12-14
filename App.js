@@ -1,11 +1,18 @@
 
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
 const App = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.heading}>My Bio</Text>
+      
+      <View style={styles.sectionProfilePicture}>
+        <Image
+          source={{ uri: 'https://picsum.photos/id/237/200/300' }}
+          style={styles.profilePicture}
+        />
+      </View>
 
       <View style={styles.section}>
         <Text style={styles.label}>Full Name:</Text>
@@ -71,6 +78,19 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 16,
     color: '#666',
+  },
+
+  sectionProfilePicture: {
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+
+  profilePicture: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    borderWidth: 2,
+    borderColor: '#00796b',
   },
 });
 
